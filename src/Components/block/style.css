@@ -1,6 +1,10 @@
 .reactdnd__block {
-    background: lightgreen;
-    margin:.2rem 0;
+  background: lightgreen;
+  height: 30px;
+  padding: 0 10px;
 
-    botder: 2px dotted lightgray;
+  line-height: 30px;
+  border: 1px dotted rgb(209, 242, 253);
+  border-radius: 5px;
+  cursor: pointer;
 }
