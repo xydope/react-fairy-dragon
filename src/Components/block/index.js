@@ -1,7 +1,7 @@
 import React from 'react';
 import './style.css'
 
-
+//Draggable item
 export default class Block extends React.Component {
     render() {
         return (
@@ -9,7 +9,6 @@ export default class Block extends React.Component {
                 className="reactdnd__block"
                 draggable
                 onDragStart={(e) => this.handleDragStart(e)}
-                onDragEnd = {(e)=> this.props.handleDragEnd(e, this.props.id)}
             >
                 {this.props.val}
             </div >
@@ -18,6 +17,5 @@ export default class Block extends React.Component {
 
     handleDragStart(e) {
         e.dataTransfer.setData("id", this.props.id);
-        e.dataTransfer.setData("val", this.props.val)
     }
 }
