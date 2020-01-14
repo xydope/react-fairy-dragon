@@ -7,34 +7,37 @@ export default class Box extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
-            blocks: [
-                { id: 1, val: "Block1" },
-                { id: 2, val: "Block2" }
-            ]
+            blocks: this.props.blocks
         }
 
-
-
-        this.handleDragStart = this.handleDragStart.bind(this);
+        this.handleDrop = this.handleDrop.bind(this);
         this.handleDragEnd = this.handleDragEnd.bind(this);
     }
 
     render() {
         return (
-            <div className="reactdnd__box" onDragEnd={((item) => console.log("Destination: ", item.currentTarget))}>
-                {this.props.name}
+            <div className="reactdnd__box" onDrop={this.handleDrop} onDragOver={this.handleDragOver}>
+                <div className="box__title">{this.props.name}</div>
                 {this.state.blocks.slice().map((item) => {
-                    return <Block key={item.id} val={item.val} onDragEnd={this.handleDragEnd} />
+                    return <Block id={item.id} key={item.id} val={item.val} handleDragEnd={this.handleDragEnd} />
                 })}
             </div>
         )
     }
-
-    handleDragStart(item) {
-
+    // Получилась фигня, надо поднимать state на lvl выше и управлять рендером 
+    // не кадым отдельным стейтом боксов, а всем еще до фильтрации.
+    handleDrop(e) {
+        let id = e.dataTransfer.getData("id");
+        let val = e.dataTransfer.getData("val");
+        let newState = [...this.state.blocks, { id: Number(id), val: val, block: this.props.name }];
+        this.setState({ blocks: newState })
     }
 
-    handleDragEnd(item) {
-        console.log(item.id)
+    handleDragOver(e) {
+        e.preventDefault();
+    }
+
+    handleDragEnd(e, id) {
+        this.setState({ blocks: this.state.blocks.filter((block) => block.id !== id && block) });
     }
 }
