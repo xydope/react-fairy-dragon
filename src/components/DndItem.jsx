@@ -19,19 +19,22 @@ export default class extends React.Component {
 
     render() {
         return (
-            <div
-                className="dnd-item"
-                onMouseDown={this.handleMouseDown}
-            >
-                {this.state.isDrag
-                    ? <DndPortal
-                        onMouseUp={this.handleMouseUp}
-                        style={this.state.style}
-                    >
-                        {this.props.children}
-                    </DndPortal>
-                    : this.props.children}
-            </div >
+            this.state.isDrag
+                ? <DndPortal
+                    onMouseUp={this.handleMouseUp}
+                    style={this.state.style}
+                    children={this.props.children}
+                />
+                : <div
+                    className="dnd-item"
+                    onMouseDown={this.handleMouseDown}
+                    children={this.props.children}
+                />
+
         )
     }
 };
+
+
+
+

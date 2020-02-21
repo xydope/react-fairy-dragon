@@ -34,7 +34,11 @@ export default class DragPortal extends React.Component {
 
     render() {
         return createPortal(
-            <div className="drag-container" style={{ ...this.state.style }}>{this.props.children}</div>,
+            <div
+                className="drag-container"
+                style={{ ...this.state.style }}
+                children={this.props.children}
+            />,
             this.root
         )
     }

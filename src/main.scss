@@ -38,6 +38,6 @@ body {
 
 .drag-container {
   position: absolute;
+  z-index: 1000;
   cursor: grabbing;
-  transform: rotate(5deg);
 }
