@@ -28,11 +28,9 @@ const Draggable = () => {
 
         setPosition({ left, top })
     }
-
+    
     const handleDragEnd = ({ target }) => {
     }
-
-
     //onDrag={handleDrag}
 
     return (
