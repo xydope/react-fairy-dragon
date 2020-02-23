@@ -1,14 +1,16 @@
 import React from 'react';
 import { createPortal } from 'react-dom';
-
 //компонент создает портали и обработчики на mouseMove и mouseUp
 
 export default class DragPortal extends React.Component {
     constructor(props) {
         super(props)
         this.state = {
+            position: this.props.position,
+            grabOffset: this.props.grabOffset,
             style: {
-                ...this.props.style
+                position: "fixed",
+                zIndex: 1000
             }
         }
         this.root = document.createElement('div');
@@ -17,7 +19,12 @@ export default class DragPortal extends React.Component {
     }
 
     handleMouseMove({ clientX, clientY }) {
-        this.setState({ style: { left: clientX, top: clientY } })
+        this.setState({
+            position: {
+                left: clientX - this.state.grabOffset.left,
+                top: clientY - this.state.grabOffset.top
+            }
+        })
     }
 
     componentDidMount() {
@@ -36,7 +43,7 @@ export default class DragPortal extends React.Component {
         return createPortal(
             <div
                 className="drag-container"
-                style={{ ...this.state.style }}
+                style={{ ...this.state.style, ...this.state.position }}
                 children={this.props.children}
             />,
             this.root

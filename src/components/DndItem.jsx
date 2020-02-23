@@ -1,35 +1,53 @@
 import React from 'react';
 import DndPortal from './DndPortal';
+import DndPlaceholder from './DndPlaceholder';
+import { getGrabOffset } from './DndUtils';
 
 export default class extends React.Component {
     constructor(props) {
         super(props);
-        this.state = { isDrag: false }
+        this.state = { isDrag: false };
         this.handleMouseDown = this.handleMouseDown.bind(this);
-        this.handleMouseUp = this.handleMouseUp.bind(this)
+        this.handleMouseUp = this.handleMouseUp.bind(this);
     }
+    handleMouseDown({ clientX, clientY, currentTarget, button }) {
+        if (!button) {
+            let grabOffset = getGrabOffset({ clientX, clientY, currentTarget });
 
-    handleMouseDown({ clientX, clientY }) {
-        this.setState({ isDrag: true, style: { left: clientX, top: clientY } })
+            this.setState({
+                isDrag: true,
+                grabOffset,
+                position: { left: clientX - grabOffset.left, top: clientY - grabOffset.top },
+                size: { width: currentTarget.offsetWidth, height: currentTarget.offsetHeight }
+            });
+        }
     }
 
     handleMouseUp() {
-        this.setState({ isDrag: false })
+        this.setState({ isDrag: false });
     }
 
     render() {
         return (
             this.state.isDrag
-                ? <DndPortal
-                    onMouseUp={this.handleMouseUp}
-                    style={this.state.style}
-                    children={this.props.children}
-                />
+                ? <>
+                    <DndPlaceholder
+                        size={this.state.size}
+                    />
+                    <DndPortal
+                        onMouseUp={this.handleMouseUp}
+                        position={this.state.position}
+                        children={this.props.children}
+                        grabOffset={this.state.grabOffset}
+                    />
+                </>
                 : <div
                     className="dnd-item"
                     onMouseDown={this.handleMouseDown}
                     children={this.props.children}
                 />
+
+
 
         )
     }

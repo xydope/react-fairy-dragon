@@ -1,7 +1,8 @@
 import React from 'react';
 //DND Components
-import DndContainer from './components/DndContainer';
+import DragContainer from './components/DragContainer';
 import DndItem from './components/DndItem';
+import DropContainer from './components/DropContainer';
 
 import TestElem from './TestElem';
 
@@ -12,15 +13,14 @@ const App = () => {
 
     return (
         <div className="app">
-            <DndContainer>
+            <DragContainer>
                 {
                     state.map((item) =>
                         <DndItem key={item.id} id={item.id} index={item.index}>
                             <TestElem value={`id: ${item.id} Idx: ${item.index}`} />
-                        </DndItem>
-                    )
+                        </DndItem>)
                 }
-            </DndContainer>
+            </DragContainer>
         </div>
     )
 }

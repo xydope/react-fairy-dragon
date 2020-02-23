@@ -3,7 +3,7 @@ import React from 'react';
 export default class Draggble extends React.Component {
     constructor(props) {
         super(props)
-        this.state = {
+        this.state = {  
             style: {},
             shift: {},
             isDrag: false,
