@@ -1,0 +1,65 @@
+[33mcommit 8215678cbf24a381a811e3ea866d9f15d669fc38[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;33mtag: 0.0.1[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: William Thorn <xydope@gmail.com>
+Date:   Tue Sep 1 16:40:20 2020 +0300
+
+    some changes
+
+[33mcommit 82b3c079cbe8d7ba2a693e528e385172497aab85[m
+Author: William Thorn <xydope@gmail.com>
+Date:   Sun Feb 23 16:42:51 2020 +0300
+
+    remove DndContainer add DragContainer, add dragOffset utility
+
+[33mcommit a7a2b59ac9a074a33208b7b319618fca522ec59d[m
+Author: William Thorn <xydope@gmail.com>
+Date:   Sat Feb 22 00:05:29 2020 +0300
+
+    code cleaning
+
+[33mcommit bb64c86721db94c6c2009545edafedf04a4d3fb5[m
+Author: William Thorn <xydope@gmail.com>
+Date:   Fri Feb 21 23:39:51 2020 +0300
+
+    rework dnd, progress
+
+[33mcommit 68084dd0f9f75931cc0cd7532cd069ac449ae4b2[m
+Author: William Thorn <xydope@gmail.com>
+Date:   Thu Feb 13 16:45:31 2020 +0300
+
+    add dragging with html drag event
+
+[33mcommit 19bf228371757e7539daca1f0c4061625a3b1b00[m
+Author: William Thorn <xydope@gmail.com>
+Date:   Wed Jan 15 02:35:02 2020 +0300
+
+    dnd complete
+
+[33mcommit 1a20e1766d99deab036544124a0c825855537957[m
+Author: William Thorn <xydope@gmail.com>
+Date:   Wed Jan 15 01:07:50 2020 +0300
+
+    add data filtering and dnd basic
+
+[33mcommit 775d112606b7fa6ecc9bb814deb185d15dc13342[m
+Author: William Thorn <xydope@gmail.com>
+Date:   Tue Jan 14 01:33:02 2020 +0300
+
+    start drag events (onDragStart, onDragEnd)
+
+[33mcommit 872b9646dfaf95466a8c5de6b9d697980ecb57bd[m
+Author: William Thorn <xydope@gmail.com>
+Date:   Mon Jan 13 20:53:44 2020 +0300
+
+    add box-parrent and block-children components
+
+[33mcommit 8fcaac94962dff1db81e65521a5142d0368fedc6[m
+Author: William Thorn <xydope@gmail.com>
+Date:   Mon Jan 13 20:20:02 2020 +0300
+
+    start project, add react
+
+[33mcommit 9c65c55a29a13873b4723a3634e6d0e0aa0cfc29[m
+Author: xydope <xydope@gmail.com>
+Date:   Mon Jan 13 20:17:42 2020 +0300
+
+    Initial commit
