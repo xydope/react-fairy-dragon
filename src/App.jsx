@@ -1,8 +1,7 @@
 import React from 'react';
 //DND Components
 import DragContainer from './components/DragContainer';
-import DndItem from './components/DndItem';
-import DropContainer from './components/DropContainer';
+import DragItem from './components/DragItem';
 
 import TestElem from './TestElem';
 
@@ -16,9 +15,9 @@ const App = () => {
             <DragContainer>
                 {
                     state.map((item) =>
-                        <DndItem key={item.id} id={item.id} index={item.index}>
+                        <DragItem key={item.id} id={item.id} index={item.index}>
                             <TestElem value={`id: ${item.id} Idx: ${item.index}`} />
-                        </DndItem>)
+                        </DragItem>)
                 }
             </DragContainer>
         </div>

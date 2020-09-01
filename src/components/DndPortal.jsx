@@ -42,8 +42,8 @@ export default class DragPortal extends React.Component {
     render() {
         return createPortal(
             <div
-                className="drag-container"
-                style={{ ...this.state.style, ...this.state.position }}
+                className="drag-item active"
+                style={{ ...this.state.style, ...this.state.position}}
                 children={this.props.children}
             />,
             this.root
